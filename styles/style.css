@@ -1,6 +1,14 @@
+html {
+  font-size: 62.5%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  font-size: 1.6rem;
+  text-align: center;
+}
 .time {
-  padding: 1rem;
-  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 }
 .available {
   background-color: green;
@@ -12,5 +20,15 @@
 }
 .schedule {
   display: grid;
-  grid-template-columns: 5;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+.warning {
+  background-color: yellow;
+  border: thin solid red;
+  color: black;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.staff {
 }
