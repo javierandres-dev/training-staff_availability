@@ -1,0 +1,16 @@
+.time {
+  padding: 1rem;
+  margin: 0.5rem;
+}
+.available {
+  background-color: green;
+  color: white;
+}
+.reserved {
+  background-color: orange;
+  color: white;
+}
+.schedule {
+  display: grid;
+  grid-template-columns: 5;
+}
