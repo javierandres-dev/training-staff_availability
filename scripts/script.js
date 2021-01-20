@@ -1,32 +1,39 @@
 "use strict";
+/* VARIABLES */
 const d = document,
   staff = 8,
-  $collaborators = d.querySelector("#collaborators"),
-  $aside = d.querySelector("aside"),
-  $schedule = d.querySelector(".schedule");
+  $warnings = d.querySelector(".warnings");
 let i = 8,
   collaborators = 8,
   flag = false;
 
+/* LISTENERS */
 d.addEventListener("DOMContentLoaded", () => {
   printSchedule();
   printCollaborators();
   eventListeners();
 });
 
+/* FUNCTIONS */
+// Show warning message to user
+const showWarning = (message) => {
+  const $message = d.createElement("P");
+  $message.classList.add("warning");
+  $message.textContent = message;
+  $warnings.appendChild($message);
+  setTimeout(() => {
+    $warnings.removeChild($message);
+    flag = false;
+  }, 4000);
+};
+
+// Handle schedule according to user selection
 const handleSchedule = (aId) => {
   if (flag) return;
   const $div = d.querySelector(`#${aId}`);
-  if (flag === false && collaborators === 0 && $div.dataset.free === "true") {
+  if (collaborators === 0 && $div.dataset.free === "true") {
     flag = true;
-    const $p = d.createElement("P");
-    $p.classList.add("warning");
-    $p.textContent = "Sorry, all of our staff are busy.";
-    $collaborators.appendChild($p);
-    setTimeout(() => {
-      $collaborators.removeChild($p);
-      flag = false;
-    }, 2000);
+    showWarning("Sorry, all of our staff are busy.");
   } else if ($div.dataset.free === "true" && collaborators > 0) {
     $div.setAttribute("data-free", false);
     $div.classList.remove("available");
@@ -41,8 +48,8 @@ const handleSchedule = (aId) => {
     printCollaborators();
   }
 };
-//busy, free
-// reserved, available
+
+// Event listeners
 const eventListeners = () => {
   d.addEventListener("click", (e) => {
     if (e.target.name === "time") {
@@ -51,19 +58,18 @@ const eventListeners = () => {
   });
 };
 
+// Print staff availability
 const printCollaborators = () => {
-  $collaborators.classList.add("staff");
-  $collaborators.textContent = `${collaborators} of ${staff}`;
+  const $collaborators = d.querySelector("#collaborators");
+  $collaborators.textContent = `Currently available ${collaborators} of ${staff} 🏍️`;
   if (collaborators === 0) {
-    $aside.classList.add("warning");
-    $aside.textContent = "All of our staff are busy.";
-  } else {
-    $aside.classList.remove("warning");
-    $aside.textContent = null;
+    showWarning("All of our staff are busy.");
   }
 };
 
+// Print schedule, from 8am to 8pm, 30 minutes interval
 const printSchedule = () => {
+  const $times = d.querySelector(".times");
   let genId = 0;
   while (i <= 20) {
     genId++;
@@ -84,7 +90,7 @@ const printSchedule = () => {
     }
     Number.isInteger(i) ? (minutes = "00") : (minutes = 30);
     $div.textContent = `${Math.floor(hours)}:${minutes} ${period}`;
-    $schedule.appendChild($div);
+    $times.appendChild($div);
     i += 0.5;
   }
 };

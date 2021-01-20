@@ -1,34 +1,131 @@
+/* BASE */
 html {
   font-size: 62.5%;
-  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 body {
   font-size: 1.6rem;
-  text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
 }
-.time {
+/* DEVELOPER */
+.dev {
+  color: gray;
+}
+.dev a {
+  text-decoration: none;
+}
+.dev a:link {
+  color: #05a6f1;
+}
+.dev a:hover {
+  text-decoration: underline;
+}
+.dev h1,
+.dev h2 {
+  font-size: 1.6rem;
+  padding: 1.6rem;
+}
+.dev h1 {
+  text-align: end;
+}
+.dev h2 {
+  text-align: start;
+}
+/* DESCRIPTION */
+.description {
+}
+/* GLOBALS */
+.container {
+  max-width: 100%;
+  margin: auto;
   padding: 0.5rem;
-  border-radius: 0.5rem;
 }
-.available {
-  background-color: green;
-  color: white;
-}
-.reserved {
-  background-color: orange;
-  color: white;
-}
-.schedule {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
+.title {
+  text-align: center;
+  text-transform: capitalize;
 }
 .warning {
-  background-color: yellow;
+  background-color: lightyellow;
   border: thin solid red;
   color: black;
   padding: 1rem;
   border-radius: 1rem;
+  text-align: center;
+  font-weight: bolder;
 }
+.p {
+  text-align: left;
+  text-transform: none;
+  padding-left: 1rem;
+}
+/* STAFF SECTION */
 .staff {
+  width: min(100%, 48rem);
+  margin: auto;
+  text-align: center;
+  background-color: lightgray;
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+/* SCHEDULE SECTION */
+.schedule {
+  text-align: center;
+  text-transform: capitalize;
+}
+.label {
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  color: white;
+}
+.available {
+  background-color: green;
+}
+.reserved {
+  background-color: orange;
+}
+.times {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+.time {
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+/* MEDIA QUERIES */
+@media screen and (min-width: 480px) {
+  .container {
+    max-width: 420px;
+    padding: 0;
+  }
+  .times {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+  .times {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
 }
