@@ -58,6 +58,8 @@ body {
   border-radius: 1rem;
   text-align: center;
   font-weight: bolder;
+  width: min(100%, 30rem);
+  margin: 1rem auto;
 }
 .p {
   text-align: left;
@@ -66,7 +68,7 @@ body {
 }
 /* STAFF SECTION */
 .staff {
-  width: min(100%, 48rem);
+  width: min(100%, 36rem);
   margin: auto;
   text-align: center;
   background-color: lightgray;
