@@ -13,30 +13,6 @@ body {
   font-size: 1.6rem;
   font-family: Helvetica, Arial, sans-serif;
 }
-/* DEVELOPER */
-.dev {
-  color: gray;
-}
-.dev a {
-  text-decoration: none;
-}
-.dev a:link {
-  color: #05a6f1;
-}
-.dev a:hover {
-  text-decoration: underline;
-}
-.dev h1,
-.dev h2 {
-  font-size: 1.6rem;
-  padding: 1.6rem;
-}
-.dev h1 {
-  text-align: end;
-}
-.dev h2 {
-  text-align: start;
-}
 /* DESCRIPTION */
 .description {
 }
@@ -130,4 +106,36 @@ body {
   .container {
     max-width: 1140px;
   }
+}
+/* DEVELOPER
+============================= */
+.dev {
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: lighter;
+  color: gray;
+  padding: 8px 16px;
+}
+.dev .top {
+  text-align: left;
+}
+.dev .bottom {
+  text-align: right;
+}
+.dev a {
+  color: #05a6f1;
+}
+.dev a:link {
+  text-decoration: none;
+}
+.dev a:visited {
+  font-style: italic;
+}
+.dev a:hover {
+  text-decoration: underline;
+}
+.dev a:active {
+  font-style: italic;
+  text-decoration: underline;
+  color: gray;
 }
